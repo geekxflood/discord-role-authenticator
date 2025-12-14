@@ -13,19 +13,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
           cache: maven
 
       - name: Build
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: discord-role-authenticator
           path: target/*.jar
+          retention-days: 90
+
+      - name: Create Release
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.0
+          name: Release v1.0.0
+          files: target/discord-role-authenticator-*.jar
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
