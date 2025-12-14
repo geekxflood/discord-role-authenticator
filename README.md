@@ -2,18 +2,6 @@
 
 A Keycloak Service Provider Interface (SPI) plugin that validates whether users have specific roles on a Discord server during authentication. This allows you to restrict access to Keycloak-protected applications based on Discord server membership and roles.
 
-## Table of Contents
-
-- [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-- [Development](#development)
-- [License](#license)
-
 ## Features
 
 - ✅ **Discord Role Validation** - Verify users have required Discord server roles during authentication
