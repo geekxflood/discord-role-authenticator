@@ -169,5 +169,6 @@
     "Chart.yaml": "Chart.lock, values*.yaml, .helmignore",
     "*.sh": "*.sh.md"
   },
-  "java.compile.nullAnalysis.mode": "automatic"
+  "java.compile.nullAnalysis.mode": "automatic",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
