@@ -1,0 +1,4 @@
+io/geekxflood/keycloak/discord/DiscordClient.class
+io/geekxflood/keycloak/discord/DiscordRoleAuthenticatorFactory.class
+io/geekxflood/keycloak/discord/DiscordException.class
+io/geekxflood/keycloak/discord/DiscordRoleAuthenticator.class
