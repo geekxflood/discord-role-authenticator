@@ -4,7 +4,7 @@
   <groupId>io.geekxflood.keycloak</groupId>
   <artifactId>discord-role-authenticator</artifactId>
   <name>Discord Role Authenticator</name>
-  <version>1.0.0</version>
+  <version>1.1.1</version>
   <description>Keycloak SPI for Discord role-based authentication</description>
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>
@@ -27,7 +27,6 @@
                 <includes>
                   <include>org.apache.httpcomponents.client5:*</include>
                   <include>org.apache.httpcomponents.core5:*</include>
-                  <include>com.fasterxml.jackson.core:*</include>
                 </includes>
               </artifactSet>
               <filters>
@@ -72,6 +71,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.16.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
       <version>3.5.3.Final</version>
@@ -79,9 +84,9 @@
     </dependency>
   </dependencies>
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>21</maven.compiler.target>
     <maven.compiler.source>21</maven.compiler.source>
     <keycloak.version>23.0.7</keycloak.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
