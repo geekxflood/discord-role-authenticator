@@ -40,13 +40,20 @@ public class DiscordRoleAuthenticator implements Authenticator {
 
         try {
             DiscordClient client = new DiscordClient(botToken);
-            List<String> userRoles = client.getUserRoles(guildId, discordUserId);
+            MemberInfo memberInfo = client.getMemberInfo(guildId, discordUserId);
+
+            // Update user avatar URL if available
+            String avatarUrl = memberInfo.getAvatarUrl();
+            if (avatarUrl != null) {
+                user.setSingleAttribute("discord_avatar_url", avatarUrl);
+                LOG.debugf("Updated avatar URL for user %s", user.getUsername());
+            }
 
             String[] required = requiredRoles.split(",");
             boolean hasRole = false;
 
             for (String roleId : required) {
-                if (userRoles.contains(roleId.trim())) {
+                if (memberInfo.getRoles().contains(roleId.trim())) {
                     hasRole = true;
                     break;
                 }
